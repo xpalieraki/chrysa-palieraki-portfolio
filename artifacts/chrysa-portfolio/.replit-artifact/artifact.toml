@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Chrysa Palieraki Portfolio"
+description = "A modern editorial portfolio for Chrysa Palieraki, showcasing her work as a digital storyteller, multimedia journalist, and media and content creator."
+version = "1.0.0"
+id = "artifacts/chrysa-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18174
+
+[services.development]
+run = "pnpm --filter @workspace/chrysa-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/chrysa-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/chrysa-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18174"
+BASE_PATH = "/"
