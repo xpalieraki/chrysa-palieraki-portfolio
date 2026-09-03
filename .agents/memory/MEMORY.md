@@ -1,0 +1,1 @@
+- [External link fidelity](external-link-fidelity.md) — verify user-supplied external destinations after delegated visual builds.
